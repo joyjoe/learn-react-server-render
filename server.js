@@ -3,22 +3,21 @@ const app = express();
 const fs = require("fs");
 const path = require("path");
 const ReactSSR = require("react-dom/server");
-const ServerEntry = require("./dist/serverEntry").default;
 const webpack = require("webpack");
 const MemoryFS = require("memory-fs");
+const axios = require("axios");
 
 // 服务端也要考虑是否为开发模式
 const isDev = process.env.NODE_ENV === "development";
+
 
 // import config.js
 const webpackServerConfig = require("./webpack.config.server.js");
 function getTemplate(){
   return new Promise((resolve, reject)=>{
-    fetch("http://localhost:8080/public/index.html", {
-      method: "GET"
-    }).then(res=>res.json()).then((data)=>{
+    axios.get("http://localhost:8080/public/index.html").then(res=>res.data).then(data=>{
       resolve(data);
-    }).catch(reject);
+    }).catch(e=>reject(e));
   });
 }
 
@@ -64,8 +63,8 @@ if(isDev){
   });
 }else{
   // 生产模式
+  const ServerEntry = require("./dist/serverEntry").default;
   app.use("/public/", express.static(path.join(__dirname, "./dist")));
-  
   app.use("*", function(req, res){
     const renderStr = ReactSSR.renderToString(ServerEntry);
     const fileContent = fs.readFileSync(path.join(__dirname, "./dist/index.html"), "utf8");

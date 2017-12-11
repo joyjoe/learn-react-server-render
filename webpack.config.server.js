@@ -5,7 +5,7 @@ const cleanWebpackPlugin = require("clean-webpack-plugin");
 webpackConfig = {
   target: "node",
   entry:{
-    serverEntry: path.join(__dirname, "./src/server-entry.js")
+    serverEntry: ["whatwg-fetch", path.join(__dirname, "./src/server-entry.js")]
   },
   output:{
     // filename: "[name].js",
