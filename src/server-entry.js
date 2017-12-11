@@ -1,4 +1,4 @@
 import React from "react";
-import App from "./component/App";
+import App from "./views/App";
 
 export default <App />;

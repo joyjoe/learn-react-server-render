@@ -14,6 +14,7 @@
     "server": "nodemon server.js",
     "clean": "rimraf dist",
     "eslint": "eslint --ext .js --ext .jsx src/",
+    "eslint:fix": "eslint --ext .js --ext .jsx src/ --fix",
     "precommit": "npm run eslint"
   },
   "repository": {
@@ -64,6 +65,8 @@
     "fetch": "^1.1.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "whatwg-fetch": "^2.0.3"
   }
 }

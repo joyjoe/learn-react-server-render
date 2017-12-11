@@ -1,13 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {AppContainer} from "react-hot-loader";
+import { BrowserRouter } from "react-router-dom";
 
-import App from "./component/App";
+import App from "./views/App";
 
 const render = (Component)=>{
   const app = (
     <AppContainer>
-      <Component />
+      <BrowserRouter>
+        <Component />
+      </BrowserRouter>
     </AppContainer>
   );
   ReactDOM.render(app, document.getElementById("root"));
@@ -16,7 +19,7 @@ const render = (Component)=>{
 render(App);
 
 if(module.hot){
-  module.hot.accept("./component/App", function(){
+  module.hot.accept("./views/App", function(){
     render(App);
   });
 }
