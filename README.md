@@ -1,2 +1,2 @@
 # learn-webpack
-webpack 2 in action
+webpack 3 in action
