@@ -7,11 +7,13 @@ module.exports = {
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        // "airbnb"
     ],
-    // "parse": "standard",
+    "parser": "babel-eslint",
     "parserOptions": {
-        "sourceType": "module"
+      "ecmaVersion": 6,
+      "sourceType": "module"
     },
     "rules": {
         "indent": [

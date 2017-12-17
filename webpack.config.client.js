@@ -26,7 +26,7 @@ webpackConfig = {
         ]
       },
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: [
           "babel-loader",
@@ -53,7 +53,7 @@ if(isDev){
   // webpackConfig.devtool = "inline-source-map";
   webpackConfig.entry = {
     app: [
-      "babel-polyfill",
+      // "babel-polyfill",
       "react-hot-loader/patch",
       path.join(__dirname, "./src/index.js")
     ]
@@ -67,8 +67,12 @@ if(isDev){
       index: "/public/index.html"
     },
     overlay: true,
-    hot:true
+    hot:true,
+    proxy: {
+      "/api": "http://localhost:3000/"
+    }
   },
+  webpackConfig.devtool = "source-map";
   webpackConfig.plugins.push(new webpack.NamedModulesPlugin());
   webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
 }

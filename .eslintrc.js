@@ -6,6 +6,6 @@ module.exports = {
         "node": true
     },
     "extends": [
-        "standard"
+      "standard"
     ]
 };

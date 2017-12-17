@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import Router from "../config/router";
 import {Link} from "react-router-dom";
 
+// 导入mobx
+// import { observer, inject} from "mobx-react";
+
 class App extends Component {
   render() {
     return (
