@@ -1,2 +1,2 @@
-# learn-webpack
-webpack 3 in action
+# React Project
+learn react server render and webpack config

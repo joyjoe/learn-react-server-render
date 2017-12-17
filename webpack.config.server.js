@@ -8,7 +8,6 @@ webpackConfig = {
     serverEntry: ["whatwg-fetch", path.join(__dirname, "./src/server-entry.js")]
   },
   output:{
-    // filename: "[name].js",
     filename: "serverEntry.js",
     path: path.join(__dirname, "./dist"),
     libraryTarget: "commonjs2"
@@ -37,8 +36,7 @@ webpackConfig = {
         ]
       }
     ]
-  },
-  // devtool: "inline-source-map"
+  }
 }
 
 module.exports = webpackConfig;
