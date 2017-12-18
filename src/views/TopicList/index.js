@@ -10,6 +10,24 @@ import AppState from "../../store/app/state";
 @inject("appState")
 @observer
 class TopicList extends Component {
+  constructor(props){
+    super(props);
+    this.changeAppName = this.changeAppName.bind(this);
+  }
+
+  // asyncBootstrap此方法会在组件构造前执行 用来执行初始化数据操作
+  asyncBootstrap(){
+    // eslint-disable-next-line
+    console.log("in asyncBootstrap method");
+    // 执行异步操作
+    return new Promise((resolve)=>{
+      setTimeout(()=>{
+        this.props.appState.count = 3;
+        resolve(true);
+      }, 2000);
+    });
+  }
+
   render() {
     // let clsA = new ClassA();
     return (

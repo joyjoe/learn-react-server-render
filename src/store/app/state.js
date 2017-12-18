@@ -5,9 +5,13 @@ import { observable, computed, action } from "mobx";
 /* eslint-disable */
 // export
 class AppState{
+  constructor({count,name} = {count: 1, name: "joyjoe"}){
+    this.count = count;
+    this.name = name;
+  }
   // 定义了两个状态值
-  @observable count = 0;
-  @observable name = "Job APP";
+  @observable count;
+  @observable name;
   // 定义计算状态值
   @computed get msg(){
     return `${this.name} say: count = ${this.count}`;
@@ -16,6 +20,12 @@ class AppState{
   @action add(num){
     this.count += num;
   };
+  toJson(){
+    return {
+      count,
+      name
+    }
+  }
 }
 
 // const appState = new AppState();

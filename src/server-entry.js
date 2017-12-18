@@ -8,10 +8,10 @@ useStaticRendering(true);
 
 /* eslint-disable */
 // 服务端渲染时针对路由的实现需要使用StaticRouter
-export default (stores, routerContext, url) => {
-  console.log(stores);
-  console.log(routerContext);
-  console.log(url);
+function serverComponent(stores, routerContext, url){
+  // console.log(stores);
+  // console.log(routerContext);
+  // console.log(url);
   return (
     <Provider {...stores}>
       <StaticRouter context={routerContext} location={url}>
@@ -21,6 +21,7 @@ export default (stores, routerContext, url) => {
   );
 };
 /* eslint-enable */
+export default serverComponent;
 
 // 还需要将创建appState实例的方法导出
 export function createAppState(){
